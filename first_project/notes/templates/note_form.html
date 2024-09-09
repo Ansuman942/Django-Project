@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if note %}Edit Note{% else %}Create Note{% endif %}</title>
+</head>
+<body>
+    <h1>{% if note %}Edit Note{% else %}Create Note{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url "note_list" %}">Cancel</a>
+</body>
+</html>
